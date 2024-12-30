@@ -1,0 +1,26 @@
+-- Create the UI elements
+local player = game.Players.LocalPlayer
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Create the TextButton
+local button = Instance.new("TextButton")
+button.Parent = screenGui
+button.Size = UDim2.new(0, 200, 0, 50) -- Button size
+button.Position = UDim2.new(1, -400, 0, 20) -- Move the button slightly to the left
+button.Text = "VC BYPASS" -- Button text
+button.TextColor3 = Color3.fromRGB(255, 255, 255) -- White text
+button.BackgroundColor3 = Color3.fromRGB(100, 149, 237) -- Darker blue light blue background
+button.BorderColor3 = Color3.fromRGB(255, 255, 255) -- White border
+button.Font = Enum.Font.SourceSansBold
+button.TextSize = 24
+
+-- Add functionality for when the button is clicked
+local function onButtonClick()
+    -- Directly join voice chat using the specified method
+    game:GetService("VoiceChatService"):joinVoice()
+    print("Attempting to join Voice Chat...")
+end
+
+-- Connect the button click event to the function
+button.MouseButton1Click:Connect(onButtonClick)
